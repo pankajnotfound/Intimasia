@@ -5,7 +5,7 @@ import Line from './Line'
 
 const Logo = () => {
   return (
-    <div className='flex gap-1'>
+    <div className=' relative hidden gap-1 md:hidden lg:flex'>
         <Logo1 />
         <Logo2 />
         <Line />

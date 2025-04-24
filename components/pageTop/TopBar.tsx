@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import Header from '../header/Header'
-import NavBar from '../navbar/NavBar'
+import NavBar from '../navbar/navbarlong/NavBar'
 
 const TopBar = () => {
 

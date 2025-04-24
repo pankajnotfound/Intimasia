@@ -2,7 +2,7 @@ import React from 'react'
 
 const ContactInfo = () => {
   return (
-    <div className='content-center flex flex-col gap-3 justify-center '>
+    <div className='content-center hidden flex-col gap-3 justify-center md:hidden lg:hidden xl:flex'>
       <a href="">
         <div className='w-fit flex text-[0.98rem] row space-between gap-4 hover:text-[#EF4AA5] delay-100 transition ease-in-out duration-300 grayscale-100 hover:grayscale-0 group'>
             <div className='w-7.5 h-7.5 flex items-center justify-center rounded-full border-1 border-black group-hover:border-[#EF4AA5] delay-100 transition ease-in-out duration-300'>
