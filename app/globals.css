@@ -18,3 +18,13 @@
       background-position: 0% 50%;
     }
   }
+
+
+@theme {
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-sxl: 1310px;
+  --breakpoint-xl: 1440px;
+  
+}

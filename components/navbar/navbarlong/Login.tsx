@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MenuElement from './MenuElement'
 
 const Login = (props: any) => {
+
+    const [menuOpened, setMenuOpen] = useState(false);
+        const numberOfMenusActive = props.numberOfMenusActive;
+        
+        const menuNumberHandler = () => {
+            if(menuOpened && numberOfMenusActive == 2){
+                setMenuOpen(false);
+            }
+            if(menuOpened){
+                props.setActiveMenus(2);
+            }
+            else {
+                props.setActiveMenus(2)
+                setMenuOpen(true);
+            }    
+        }
+        
     return (
         <div className={`rounded-full text-center hidden items-center text-nowrap delay-100 transition ease-in-out duration-300 hover:bg-[#C82D78] lg:flex `}>
             <div className='w-full flex items-center justify-center cursor-pointer '>

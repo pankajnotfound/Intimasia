@@ -32,27 +32,29 @@ import GetInTouch from '../navbarshort/GetInTouch';
 const NavBar = () => {
     const heightRef = useRef<HTMLDivElement>(null);
 
+    const[activeMenus, setActiveMenus] = useState(0);
     const[isDropdownActive, setDropdown] = useState(false);
-    const[height, setHeight] = useState(0);
+    const[height, setHeight] = useState("0");
     
     const toggleDropdown = () => {
-        setDropdown(!isDropdownActive)
+        
+        if (height == "33.25rem" && isDropdownActive ) {
+            setHeight("0");
+            setDropdown(false)
+        }
+        else {
+            setHeight("33.25rem");
+            setDropdown(true)
+        }
+        
     }
 
     console.log(isDropdownActive)
-
-    useEffect(() => {
-        if(isDropdownActive && heightRef.current ){
-            setHeight(heightRef.current.scrollHeight);
-        }
-        else {
-            setHeight(0);
-        }
-    }, [isDropdownActive]);
+    console.log(activeMenus);
 
 
   return (
-    <div className='w-full h-[3.6rem] flex flex-wrap items-center align-middle justify-center md:bg-linear-170 from-[#f168aa] to-[#d71974] uppercase md:h-22 lg:h-[3.6rem] lg:content-center'>
+    <div className='z-[9999] w-full h-[3.6rem] flex flex-wrap items-center align-middle justify-center md:bg-linear-170 from-[#f168aa] to-[#d71974] uppercase md:h-22 lg:h-[3.6rem] lg:content-center'>
         <motion.ul
             initial="hidden"
             animate="visible"
@@ -85,7 +87,7 @@ const NavBar = () => {
             <div className='w-full min-h-20 flex px-3 gap-4 text-[1.05rem] justify-between items-center rounded-2xl text-white font-[roboto] font-bold '>
                 <NavbarLogoShort />
                 <div onClick={toggleDropdown} className=''>
-                    <ToggleButton />
+                    <ToggleButton animateCross = {isDropdownActive} />
                 </div>
             </div>
             <div className='w-full flex absolute top-21 content-center justify-center'>
@@ -101,13 +103,13 @@ const NavBar = () => {
             
                 ref={heightRef}
                 className={`w-full px-3 flex overflow-hidden bg-none flex-col lg:hidden `}>
-                <div className='w-fit h-fit py-2'>
+                <div className='w-full h-fit pt-2 max-h-133 overflow-scroll'>
                     <HomeShort shouldBeHidden = {isDropdownActive} />
-                    <TheShowShort shouldBeHidden = {isDropdownActive} />
-                    <ExhibitingShort shouldBeHidden = {isDropdownActive} />
-                    <VisitingShort shouldBeHidden = {isDropdownActive} />
-                    <PracticalInfoShort shouldBeHidden = {isDropdownActive} />
-                    <PressShort shouldBeHidden = {isDropdownActive} />
+                    <TheShowShort shouldBeHidden = {isDropdownActive} numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
+                    <ExhibitingShort shouldBeHidden = {isDropdownActive} numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
+                    <VisitingShort shouldBeHidden = {isDropdownActive} numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
+                    <PracticalInfoShort shouldBeHidden = {isDropdownActive} numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
+                    <PressShort shouldBeHidden = {isDropdownActive} numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
                     <BlogShort shouldBeHidden = {isDropdownActive} />
                     <ContactShort shouldBeHidden = {isDropdownActive} />
                     <RegisterButtonShort shouldBeHidden = {isDropdownActive} />

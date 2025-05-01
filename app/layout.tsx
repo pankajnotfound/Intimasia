@@ -36,8 +36,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}
       >
-        <TopBar/>
-        {children}
+        <div className="sticky">
+          <TopBar/>
+        </div>
+        
+        <div className="w-full mt-10 h-600 text-3xl font-bold flex justify-center content-center flex-wrap bg-black md:mt-35 lg:mt-40">
+          {children}
+        </div>
 
         <Footer />
       </body>
