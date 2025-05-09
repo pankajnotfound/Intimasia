@@ -1,8 +1,10 @@
+import ImageCarousel from "@/components/imageCarousel/ImageCarousel"
+
 const page = () => {
   return (
     <div >
+      <ImageCarousel />
       <p className="text-white">
-        Hi
       </p>
     </div>
   )

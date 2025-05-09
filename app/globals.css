@@ -28,3 +28,18 @@
   --breakpoint-xl: 1440px;
   
 }
+
+
+.swiper-pagination-bullet {
+  background-color: white !important;
+  opacity: 0.6 !important ;
+  scale: 1;
+  transition: all ease-in-out 150ms ;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  border: 1.2px white solid;
+  scale: 2 !important;
+  background: #d51473 !important;
+}

@@ -54,7 +54,7 @@ const NavBar = () => {
 
 
   return (
-    <div className='z-[9999] w-full h-[3.6rem] flex flex-wrap items-center align-middle justify-center md:bg-linear-170 from-[#f168aa] to-[#d71974] uppercase md:h-22 lg:h-[3.6rem] lg:content-center'>
+    <div className=' w-full h-[3.6rem] relative z-50 flex flex-wrap items-center align-middle justify-center md:bg-linear-170 from-[#f168aa] to-[#d71974] uppercase md:h-22 lg:h-[3.6rem] lg:content-center'>
         <motion.ul
             initial="hidden"
             animate="visible"
@@ -83,16 +83,14 @@ const NavBar = () => {
                 )
             )}
         </motion.ul>
-        <div className='w-full h-fit relative overflow-hidden flex flex-col py-1 bg-linear-170 from-[#f87cb4] to-[#ffc4e4] lg:hidden'>
+        <div className='w-full h-fit z-50 relative overflow-hidden flex flex-col py-1 bg-linear-170 from-[#f87cb4] to-[#ffc4e4] lg:hidden'>
             <div className='w-full min-h-20 flex px-3 gap-4 text-[1.05rem] justify-between items-center rounded-2xl text-white font-[roboto] font-bold '>
                 <NavbarLogoShort />
                 <div onClick={toggleDropdown} className=''>
                     <ToggleButton animateCross = {isDropdownActive} />
                 </div>
             </div>
-            <div className='w-full flex absolute top-21 content-center justify-center'>
-                <HorizontalLine />
-            </div>
+            
             <motion.div 
                 initial = {false}
                 animate = {{maxHeight: height}}
@@ -103,7 +101,7 @@ const NavBar = () => {
             
                 ref={heightRef}
                 className={`w-full px-3 flex overflow-hidden bg-none flex-col lg:hidden `}>
-                <div className='w-full h-fit pt-2 max-h-133 overflow-scroll'>
+                <div className='w-full h-fit pt-2 max-h-133 overflow-scroll border-t-1'>
                     <HomeShort shouldBeHidden = {isDropdownActive} />
                     <TheShowShort shouldBeHidden = {isDropdownActive} numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
                     <ExhibitingShort shouldBeHidden = {isDropdownActive} numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />

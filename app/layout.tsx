@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 import Footer from "@/components/footer/Footer";
 import TopBar from "@/components/pageTop/TopBar";
 
@@ -36,11 +38,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}
       >
-        <div className="sticky">
+        <div className="">
           <TopBar/>
         </div>
         
-        <div className="w-full mt-10 h-600 text-3xl font-bold flex justify-center content-center flex-wrap bg-black md:mt-35 lg:mt-40">
+        <div className="w-full mt-36 pb-400 h-fit text-3xl font-bold flex justify-center content-center flex-wrap bg-black md:mt-35 lg:mt-35">
           {children}
         </div>
 

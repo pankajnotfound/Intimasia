@@ -32,7 +32,7 @@ const TopBar = () => {
     }, [lastScrollValue]);
 
   return (
-    <div className={`fixed w-full ${ isHeaderHidden ? 'top-[-4rem] lg:top-[-7rem]': 'top-0 lg:top-0'} transition-all ease-in-out duration-300 `}>
+    <div className={`z-50 fixed w-full ${ isHeaderHidden ? 'top-[-4rem] lg:top-[-7rem]': 'top-0 lg:top-0'} transition-all ease-in-out duration-300 `}>
         <Header />
         <NavBar />
     </div>
