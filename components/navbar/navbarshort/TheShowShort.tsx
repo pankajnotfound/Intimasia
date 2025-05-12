@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import MenuElement from './MenuElement';
+import { ROUTES } from '@/constant/routes';
 
-const TheShowShort = (props : any) => {
+type PropsDataType = {
+    numberOfMenusActive : number;
+    setActiveMenus : (value:number)=> void;
+}
+
+const TheShowShort = (props : PropsDataType) => {
 
     const [menuOpened, setMenuOpen] = useState(false);
     const numberOfMenusActive = props.numberOfMenusActive;
@@ -27,14 +33,14 @@ const TheShowShort = (props : any) => {
                     The Show
                 </div>
                 <ul className={`w-full relative flex flex-col gap-0 rounded-b-md overflow-hidden normal-case font-sans text-sm font-normal bg-white text-black transition delay-100 origin-top duration-200 ${(menuOpened && numberOfMenusActive == 1 )? " w-100 h-fit" : "scale-y-0 w-0 h-0 " } `}>
-                    <MenuElement Text="About The Show" />
-                    <MenuElement Text="Why India" />
-                    <MenuElement Text="Highlights" />
-                    <MenuElement Text="Video Gallery" />
-                    <MenuElement Text="Photo Gallery" />
-                    <MenuElement Text="Sponsers" />
-                    <MenuElement Text="Partners" />
-                    <MenuElement Text="Organizers" />
+                    <MenuElement Text="About The Show" Path = {ROUTES.ABOUT} />
+                    <MenuElement Text="Why India" Path = {ROUTES.WHYINDIA} />
+                    <MenuElement Text="Highlights" Path = {ROUTES.HIGHLIGHTS} />
+                    <MenuElement Text="Video Gallery" Path = {ROUTES.VIDEOGALLERY} />
+                    <MenuElement Text="Photo Gallery" Path = {ROUTES.PHOTOGALLERY} />
+                    <MenuElement Text="Sponsers" Path = {ROUTES.SPONSERS} />
+                    <MenuElement Text="Partners" Path = {ROUTES.PARTNERS} />
+                    <MenuElement Text="Organizers" Path = {ROUTES.ORGANIZERS} />
                 </ul>
             </div>
         </div>

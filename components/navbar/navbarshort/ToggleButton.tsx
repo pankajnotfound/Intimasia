@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
-import { isAbsolute } from 'path';
 import React, { useEffect, useState } from 'react'
 
-const ToggleButton = (props: any) => {
+type PropsDataType = {
+  animateCross: boolean;
+}
+
+const ToggleButton = (props: PropsDataType) => {
 
   const animateCross = props.animateCross;
 

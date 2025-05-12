@@ -1,6 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone , faEnvelope, faE } from '@fortawesome/free-solid-svg-icons'
+import { faPhone , faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
 
 const GetInTouch = () => {
   return (
@@ -9,25 +10,25 @@ const GetInTouch = () => {
             <p>GET IN TOUCH</p>
         </div>
         <div>
-            <a href="">
+            <Link href="">
                 <div className='w-fit flex text-[0.98rem] row space-between gap-2 hover:text-[#EF4AA5] delay-100 transition ease-in-out duration-300 grayscale-100 hover:grayscale-0 group'>
                     <div className='w-7.5 h-7.5 flex items-center justify-center rounded-full group-hover:border-[#EF4AA5] delay-100 transition ease-in-out duration-300'>
                         <FontAwesomeIcon size='lg' icon={faPhone} />
                     </div>
                     <p className='w-fit text-xl flex justify-center items-center'>9920836252</p>
                 </div>
-            </a>
+            </Link>
         </div>
         <div>
-            <a href="">
+            <Link href="">
                 <div className='w-fit flex text-[0.96rem] row space-between gap-2 hover:text-[#EF4AA5] delay-100 transition ease-in-out duration-300 grayscale-100 hover:grayscale-0 group'>
                     <div className='w-7.5 h-7.5 flex items-center justify-center rounded-full group-hover:border-[#EF4AA5] delay-100 transition ease-in-out duration-300'>
                     <FontAwesomeIcon size='lg' icon={faEnvelope} />
                     </div>
                     <p className='w-fit flex justify-center items-center'>intimasiaexpo@gmail.com</p>
                 </div>
-            </a>
-            </div>
+            </Link>
+        </div>
     </div>
   )
 }

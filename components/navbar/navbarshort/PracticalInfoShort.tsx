@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import MenuElement from './MenuElement'
+import { ROUTES } from '@/constant/routes';
 
-const PracticalInfoShort = (props : any) => {
+type PropsDataType = {
+    numberOfMenusActive: number;
+    setActiveMenus: (value:number)=> void;
+}
+
+const PracticalInfoShort = (props : PropsDataType) => {
 
     const [menuOpened, setMenuOpen] = useState(false);
     const numberOfMenusActive = props.numberOfMenusActive;
@@ -27,10 +33,10 @@ const PracticalInfoShort = (props : any) => {
                     Practical Info
                 </div>
                 <ul className={`w-full relative flex flex-col gap-0 rounded-b-md overflow-hidden normal-case font-sans text-sm font-normal bg-white text-black transition delay-100 origin-top duration-200 ${(menuOpened && numberOfMenusActive == 4 ) ? " w-100 h-fit" : "scale-y-0 w-0 h-0 " }`}>
-                    <MenuElement Text="Reaching The Show" />
-                    <MenuElement Text="Prefered Hotels" />
-                    <MenuElement Text="Shuttle Service" />
-                    <MenuElement Text="Visa Invitation" />
+                    <MenuElement Text="Reaching The Show" Path = {ROUTES.REACHINGTHESHOW}/>
+                    <MenuElement Text="Preferred Hotels" Path = {ROUTES.PREFERREDHOTELS} />
+                    <MenuElement Text="Shuttle Service" Path = {ROUTES.SHUTTLESERVICE} />
+                    <MenuElement Text="Visa Invitation" Path = {ROUTES.VISAINVITATION} />
                 </ul>
         </div>
         </div>

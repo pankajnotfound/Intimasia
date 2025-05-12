@@ -1,7 +1,7 @@
 'use client';
 
-import { easeInOut, motion } from 'framer-motion';
-import React, { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion';
+import React, {useEffect, useRef, useState } from 'react'
 import Home from './Home'
 import TheShow from './TheShow'
 import Exhibiting from './Exhibiting'
@@ -24,7 +24,6 @@ import RegisterButtonShort from '../navbarshort/RegisterButtonShort';
 import TheShowShort from '../navbarshort/TheShowShort';
 import VisitingShort from '../navbarshort/VisitingShort';
 import NavbarLogoShort from '../navbarshort/NavbarLogoShort';
-import HorizontalLine from '../navbarshort/HorizontalLine';
 import GetInTouch from '../navbarshort/GetInTouch';
 
 
@@ -48,6 +47,17 @@ const NavBar = () => {
         }
         
     }
+
+    useEffect(() => {
+        if(!isDropdownActive){
+            setActiveMenus(0);
+            console.log("done")
+        }
+        return () => {
+            
+        };
+    }, [isDropdownActive]);
+
 
     console.log(isDropdownActive)
     console.log(activeMenus);
@@ -102,16 +112,16 @@ const NavBar = () => {
                 ref={heightRef}
                 className={`w-full px-3 flex overflow-hidden bg-none flex-col lg:hidden `}>
                 <div className='w-full h-fit pt-2 max-h-133 overflow-scroll border-t-1'>
-                    <HomeShort shouldBeHidden = {isDropdownActive} />
-                    <TheShowShort shouldBeHidden = {isDropdownActive} numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
-                    <ExhibitingShort shouldBeHidden = {isDropdownActive} numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
-                    <VisitingShort shouldBeHidden = {isDropdownActive} numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
-                    <PracticalInfoShort shouldBeHidden = {isDropdownActive} numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
-                    <PressShort shouldBeHidden = {isDropdownActive} numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
-                    <BlogShort shouldBeHidden = {isDropdownActive} />
-                    <ContactShort shouldBeHidden = {isDropdownActive} />
-                    <RegisterButtonShort shouldBeHidden = {isDropdownActive} />
-                    <LoginShort shouldBeHidden = {isDropdownActive} />
+                    <HomeShort/>
+                    <TheShowShort numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
+                    <ExhibitingShort numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
+                    <VisitingShort numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
+                    <PracticalInfoShort numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
+                    <PressShort numberOfMenusActive = {activeMenus} setActiveMenus = {setActiveMenus} />
+                    <BlogShort />
+                    <ContactShort />
+                    <RegisterButtonShort />
+                    <LoginShort />
                     <GetInTouch />
                 </div>
             </motion.div>

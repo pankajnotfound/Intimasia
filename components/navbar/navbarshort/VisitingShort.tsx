@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import MenuElement from './MenuElement'
+import { ROUTES } from '@/constant/routes';
 
-const VisitingShort = (props : any) => {
+type PropsDataType = {
+    numberOfMenusActive : number;
+    setActiveMenus : (value:number)=> void;
+}
+
+const VisitingShort = (props : PropsDataType) => {
 
     const [menuOpened, setMenuOpen] = useState(false);
     const numberOfMenusActive = props.numberOfMenusActive;
@@ -27,14 +33,14 @@ const VisitingShort = (props : any) => {
                     Visiting
                 </div>
                 <ul className={`w-full relative flex flex-col gap-0 rounded-b-md overflow-hidden normal-case font-sans text-sm font-normal bg-white text-black transition delay-100 origin-top duration-200 ${(menuOpened && numberOfMenusActive == 3 )? " w-100 h-fit" : "scale-y-0 w-0 h-0 " } `}>
-                        <MenuElement Text="Why Visit" />
-                        <MenuElement Text="Exibitor Profile" />
-                        <MenuElement Text="Exibitor List" />
-                        <MenuElement Text="Visitor Testimonials" />
-                        <MenuElement Text="Events" />
-                        <MenuElement Text="Speakers" />
-                        <MenuElement Text="Register Now" />
-                    </ul>
+                    <MenuElement Text="Why Visit" Path = {ROUTES.WHYVISIT} />
+                    <MenuElement Text="Exibitor Profile" Path = {ROUTES.EXHIBITORPROFILE} />
+                    <MenuElement Text="Exibitor List" Path = {ROUTES.EXHIBITORLIST} />
+                    <MenuElement Text="Visitor Testimonials" Path = {ROUTES.VISITORTESTIMONIALS} />
+                    <MenuElement Text="Events" Path = {ROUTES.EVENTS} />
+                    <MenuElement Text="Speakers" Path = {ROUTES.SPEAKERS} />
+                    <MenuElement Text="Register Now" Path = {ROUTES.REGISTER} />
+                </ul>
             </div>
         </div>
 )

@@ -1,7 +1,14 @@
 import React, { useState } from 'react'
 import MenuElement from './MenuElement'
+import { ROUTES } from '@/constant/routes';
 
-const ExhibitingShort = (props : any) => {
+
+type PropsDataType = {
+    numberOfMenusActive: number;
+    setActiveMenus: (value:number)=> void;
+}
+
+const ExhibitingShort = (props : PropsDataType) => {
     
     const [menuOpened, setMenuOpen] = useState(false);
     const numberOfMenusActive = props.numberOfMenusActive;
@@ -27,14 +34,14 @@ const ExhibitingShort = (props : any) => {
                     Exhibiting
                 </div>
                 <ul className={`w-full relative flex flex-col gap-0 rounded-b-md overflow-hidden normal-case font-sans text-sm font-normal bg-white text-black transition delay-100 origin-top duration-200 ${(menuOpened && numberOfMenusActive == 2 ) ? " w-100 h-fit" : "scale-y-0 w-0 h-0 " }`}>
-                    <MenuElement Text="Visitor Profile" />
-                    <MenuElement Text="Why Exhibit" />
-                    <MenuElement Text="Event Promotion" />
-                    <MenuElement Text="Participation Details" />
-                    <MenuElement Text="Branding Opportinities" />
-                    <MenuElement Text="Exhibitor Testimionials" />
-                    <MenuElement Text="Floor Plan" />
-                </ul>
+                    <MenuElement Text="Visitor Profile" Path = {ROUTES.VISITORPROFILE} />
+                        <MenuElement Text="Why Exhibit" Path = {ROUTES.WHYEXHIBIT} />
+                        <MenuElement Text="Event Promotion" Path = {ROUTES.EVENTPROMOTION} />
+                        <MenuElement Text="Participation Details" Path = {ROUTES.PARTICIPATIONDETAILS} />
+                        <MenuElement Text="Branding Opportinities" Path = {ROUTES.BRANDINGOPPORTUNITIES} />
+                        <MenuElement Text="Exhibitor Testimonials" Path = {ROUTES.EXHIBITORTESTIMONIALS} />
+                        <MenuElement Text="Floor Plan" Path = {ROUTES.FLOORPLAN} />
+            </ul>
             </div>
         </div>
 )

@@ -1,11 +1,13 @@
+import { ROUTES } from '@/constant/routes'
+import Link from 'next/link'
 import React from 'react'
 
 const TandC = () => {
   return (
     <div>
-        <a href="">
+        <Link href={ROUTES.TERMSANDCONDITIONS}>
             Terms & Condition
-        </a>
+        </Link>
     </div>
   )
 }

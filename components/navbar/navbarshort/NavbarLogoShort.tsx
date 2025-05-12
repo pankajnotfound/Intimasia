@@ -1,10 +1,13 @@
+import { ROUTES } from '@/constant/routes'
+import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const NavbarLogoShort = () => {
   return (
-    <div className='flex w-50' >
-        <img src="/resources/navbarlogo.svg" alt=" Logo" />
-    </div>
+    <Link href={ROUTES.HOME} className='relative flex w-50' >
+        <Image src="/resources/navbarlogo.svg" alt=" Logo" width={200} height={200} />
+    </Link>
   )
 }
 

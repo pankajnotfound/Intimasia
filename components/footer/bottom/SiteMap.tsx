@@ -1,11 +1,13 @@
+import { ROUTES } from '@/constant/routes'
+import Link from 'next/link'
 import React from 'react'
 
 const SiteMap = () => {
   return (
     <div>
-      <a href="">
+      <Link href={ROUTES.SITEMAP}>
         Site Map
-      </a>
+      </Link>
     </div>
   )
 }

@@ -1,13 +1,28 @@
+'use client';
+import Link from 'next/link'
 import React from 'react'
 
-const MenuElement = (props: any) => {
+type PropsDataType = {
+  autoClose: (value:boolean) => void;
+  Path: string;
+  Text: string;
+}
+
+const MenuElement = (props: PropsDataType) => {
+
+  const autoClose = props.autoClose;
+
+  const autoCloseDropdown = () => {
+    autoClose(true);
+  }
+
   return (
     <div>
-        <a href="">
+        <Link onClick={autoCloseDropdown} href={props.Path}>
             <li className='p-2 pl-4 text-left transition-all duration-500 ease-in-out delay-75 hover:translate-x-3 hover:text-[#d61573]'>
                 {props.Text}
             </li>
-        </a>
+        </Link>
     </div>
   )
 }

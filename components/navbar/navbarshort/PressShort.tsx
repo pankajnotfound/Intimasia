@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import MenuElement from './MenuElement'
+import { ROUTES } from '@/constant/routes';
 
-const PressShort = (props : any) => {
+type PropsDataType = {
+    numberOfMenusActive: number;
+    setActiveMenus: (value:number)=> void;
+}
+
+const PressShort = (props : PropsDataType) => {
 
     const [menuOpened, setMenuOpen] = useState(false);
     const numberOfMenusActive = props.numberOfMenusActive;
@@ -28,10 +34,10 @@ const PressShort = (props : any) => {
                     Press
                 </div>
                 <ul className={`w-full relative flex flex-col gap-0 rounded-b-md overflow-hidden normal-case font-sans text-sm font-normal bg-white text-black transition delay-100 origin-top duration-200 ${(menuOpened && numberOfMenusActive == 5 ) ? " w-100 h-fit" : "scale-y-0 w-0 h-0 " }`}>
-                    <MenuElement Text="Press Releases" />
-                    <MenuElement Text="Media Gallery" />
-                    <MenuElement Text="Media Coverages" />
-                    <MenuElement Text="Press Contact" />
+                    <MenuElement Text="Press Releases" Path = {ROUTES.PRESSRELEASES} />
+                    <MenuElement Text="Media Gallery" Path = {ROUTES.MEDIAGALLERY} />
+                    <MenuElement Text="Media Coverages" Path = {ROUTES.MEDIACOVERAGE} />
+                    <MenuElement Text="Press Contact" Path = {ROUTES.PRESSCONTACT} />
                 </ul>
             </div>
         </div>
